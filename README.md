@@ -7,8 +7,11 @@ This project is created to reduce the man work and make booking easy.
 <br>
 The Tech we use to build this project are - 
   1.Frontend - HTML, CSS, JS
+  <br>
   2.Backend -Python
+  <br>
   3.Framework - FLASK(Python)
+  <br>
   4.Database - MySQL  
 <br>
 <h3>Details Of Project</h3>
