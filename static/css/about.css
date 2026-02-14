@@ -1,0 +1,98 @@
+/* Hero*/
+.about-hero{
+background:#000;
+padding: 80px 0;
+}
+
+.about-title{
+    color: #f5c542;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.about-subtitle{
+    color: #ccc;
+    max-width: 700px;
+    margin: auto;
+    font-size: 1.15rem;
+}
+
+/* Sections */
+.about-section {
+    padding: 70px 0;
+}
+
+.section-title {
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.section-text{
+    color: #666;
+    line-height: 1.7;
+}
+
+/*Quote*/
+.story-quote{
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    font-weight: 600;
+    color: #111;
+
+    background-color:gold;
+    padding: 18px 22px;
+    margin-top: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+
+    border-left: 5px solid red;
+    border-right: 5px solid red;
+    border-radius: 8px;
+
+    line-height: 1.7;
+}
+
+/* Image*/
+.about-img{
+    width: 100%;
+    border-radius: 18px;
+}
+
+/* Why Choose Us */
+
+.why-card{
+    background: #111;
+    padding: 25px;
+    border-radius: 16px;
+    color: #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+}
+
+.why-card i{
+    font-size: 2rem;
+    color: #f5c542;
+    margin-bottom: 10px;
+}
+
+/* Stats*/
+.stat-nymber{
+    color:#f5c542;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.stat-text{
+    color: #777;
+}
+
+/* CTA */
+.about-cta{
+    background: #111;
+    padding: 60px 0;
+    color: #fff;
+}

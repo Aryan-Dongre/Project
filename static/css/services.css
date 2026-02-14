@@ -1,0 +1,77 @@
+/* PAGE */
+.services-page {
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+}
+
+/* CATEGORY TITLE */
+.category-title {
+    color: #f5c542;
+    font-weight: 700;
+    margin-bottom: 25px;
+    border-left: 4px solid #f5c542;
+    padding-left: 12px;
+}
+
+/* GRID */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+/* CARD */
+.service-card {
+    background: #111;
+    border-radius: 16px;
+    padding: 18px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: 1px solid transparent;
+}
+
+/* HOVER */
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(245,197,66,0.25);
+}
+
+/* SELECTED */
+.service-card.selected {
+    border-color: #f5c542;
+    box-shadow: 0 0 0 2px rgba(245,197,66,0.35);
+}
+
+/* TEXT */
+.service-card h6 {
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.price {
+    color: #f5c542;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.duration {
+    color: #ddd;
+    font-size: 0.9rem;
+}
+
+.desc {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-top: 8px;
+}
+
+/* BUTTONS */
+.btn-outline-warning,
+.btn-warning {
+    border-radius: 30px;
+    padding: 6px 18px;
+    font-weight: 600;
+}

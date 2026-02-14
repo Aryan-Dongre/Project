@@ -1,0 +1,125 @@
+/* ================= APPOINTMENT CARD ================= */
+
+.appointment-card {
+    max-width: 1100px;
+    background-color: radial-gradient(circle at top, #141414, #050505);
+    border-radius: 22px;
+    padding: 35px;
+    margin-bottom: 40px;
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.75),
+        inset 0 0 0 1px rgba(255,193,7,0.08);
+}
+
+/* ================= FLEX LAYOUT ================= */
+
+.appointment-flex{
+    display: flex;
+    gap: 40px;
+}
+
+/* ================= LEFT SIDE ================= */
+left-info{
+    flex: 2;
+    color: #ffffff;
+}
+
+/* ================= RIGHT SIDE ================= */
+
+rigth-info{
+    flex: 1;
+    background: linear-gradient(145deg, #0c0c0c, #141414);
+    border-radius: 16px;
+    padding: 25px;
+    color: #ffff;
+    box-shadow:
+        inset 0 0 0 1px rgba(255,193,7,0.15);
+}
+
+/* ================= TITLES ================= */
+
+.section-title {
+    color: #f5c542;
+    font-weight: 600;
+    margin-bottom: 18px ;
+}
+
+/* ================= STATUS ================= */
+
+.status-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 220px;
+}
+
+
+/* ================= BADGES ================= */
+
+.badge {
+  display: inline-block;
+  padding: 7px 14px;
+  border-radius: 18px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  width: fit-content;
+}
+
+/* ===== PAYMENT STATUS COLORS ===== */
+
+.status-success{
+ background-color: #28a745;
+ color: #ffffff;
+}
+
+.status-pending{
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.status-failed {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+/* ===== APPOINTMENT STATUS COLORS ===== */ 
+
+.status-confirmed{
+    background-color: #17a2b8;
+    color: #ffffff;
+}
+
+.status-completed {
+    background-color: #155724;
+    color: #ffffff;
+}
+
+.status-cancelled {
+    background-color: #6c757d;
+    color: #ffffff;
+}
+
+/* =================Pay Now Button ================= */
+.action-buttons {
+    display:flex;
+    gap:15px;
+    margin-top: 20px;
+}
+
+.action-buttons .btn{
+   border-radius: 18px;
+   font-weight: 600;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+    .appointment-flex {
+        flex-direction: column;
+    }
+
+    .right-info {
+        margin-top: 25px;
+    }
+}

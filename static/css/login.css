@@ -1,0 +1,150 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* Page background */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #000000, #1c1c1c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card */
+.login-container {
+    width: 360px;
+    background-color: #111;
+    padding: 40px 35px;
+    border-radius: 18px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+    text-align: center;
+}
+
+/* Title */
+.login-container h2 {
+    color: #f5c542;
+    margin-bottom: 25px;
+    font-size: 1.9rem;
+}
+
+/* Inputs */
+.login-container input {
+    width: 100%;
+    padding: 13px 15px;
+    margin-bottom: 18px;
+    background-color: #000;
+    border: 1px solid #333;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.login-container input::placeholder {
+    color: #999;
+}
+
+.login-container input:focus {
+    outline: none;
+    border-color: #f5c542;
+    box-shadow: 0 0 0 2px rgba(245,197,66,0.3);
+}
+
+/* Login Button */
+/* Login Button – FIXED */
+.login-btn {
+    width: 100%;
+    height: 46px;                /* forces consistent height */
+    background: linear-gradient(135deg, #f5c542, #e0b832);
+    border: none;
+    border-radius: 12px;
+    color: #000;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    display: flex;               /* centers text */
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+}
+
+/* Hover effect */
+.login-btn:hover {
+    background: linear-gradient(135deg, #e0b832, #f5c542);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(245,197,66,0.35);
+}
+
+/* Click effect */
+.login-btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+
+/* Register link */
+.register-text {
+    margin-top: 18px;
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+.register-text a {
+    color: #f5c542;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-text a:hover {
+    text-decoration: underline;
+}
+
+.password-wrap{
+    position: relative;
+    width: 100%;
+}
+
+.password-wrap input {
+    width: 100%;
+    padding-right: 45px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #aaa;
+}
+
+.toggle-password:hover {
+    color: #ffc107;
+}
+
+.flash {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.flash.info {
+    background: rgba(0, 123, 255, 0.2);
+    color: #4da3ff;
+}
+
+.flash.success {
+    background: rgba(40, 167, 69, 0.2);
+    color: #4caf50;
+}
+
+.flash.danger {
+    background: rgba(220, 53, 69, 0.2);
+    color: #ff4d4d;
+}

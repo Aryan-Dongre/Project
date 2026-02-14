@@ -1,0 +1,86 @@
+/* CONTACT INFO */
+.contact-info {
+    background-color: #111;
+    color: #fff;
+    padding: 30px;
+    border-radius: 16px;
+}
+
+/* ================= REVIEW SECTION ================= */
+.review-section {
+    background-color: #111;
+    padding: 30px;
+    border-radius: 16px;
+}
+
+.review-title {
+    color: #f5c542;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* ================= STAR RATING ================= */
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    font-size: 2rem;
+    color: #444;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+/* Hover effect */
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #f5c542;
+}
+
+/* Selected stars (PERSISTENT GLOW) */
+.star-rating input:checked ~ label {
+    color: #f5c542;
+}
+
+/* ================= TEXTAREA ================= */
+.review-section textarea {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #333;
+}
+
+.review-section textarea:focus {
+    border-color: #f5c542;
+    box-shadow: none;
+}
+
+.review-section textarea::placeholder{
+    color: #888;
+    opacity: 1;
+}
+
+/* ================= REVIEW DISPLAY ================= */
+.review-card {
+    background-color: #111;
+    padding: 18px;
+    border-radius: 12px;
+    color: #fff;
+}
+
+.review-card .star {
+    color: #444;
+    font-size: 1.2rem;
+}
+
+.review-card .star.filled {
+    color: #f5c542;
+}
+
+

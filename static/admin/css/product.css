@@ -1,0 +1,178 @@
+/*page*/
+.product-page {
+    background-color: #f8f9fa;
+}
+
+/*Header*/
+.product-header {
+    margin-bottom: 20px;
+}
+
+.page-title {
+    font-weight: 600;
+}
+
+/*Add Button*/
+.add-product-btn {
+    border-radius: 50px;
+    padding: 6px 18px;
+}
+
+/*Start Cards*/
+.stats-card{
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-4px);
+}
+
+.stats-label {
+    font-size:15px ;
+    color: #6c757d;
+    margin-bottom:5px ;
+}
+
+.stats-value {
+    font-weight: 700;
+    margin: 0;
+}
+
+.stats-success {
+    border-left: 4px solid #198754;
+}
+
+.stats-danger {
+    border-left: 4px solid #dc3545;
+}
+
+/* Table */
+.product-table-card {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.product-table th {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.product-row:hover {
+    background-color: #f1f3f5;
+}
+
+.product-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product-name {
+    font-weight: 500;
+}
+
+.product-actions .action-btn {
+    margin-left: 5px;
+}
+
+/* ========================= */
+/* MOBILE RESPONSIVE DESIGN */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+    /* Header */
+    .product-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .add-product-btn {
+        width: 100%;
+    }
+
+    /* Stats Cards */
+    .product-stats .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .stats-card {
+        padding: 15px;
+    }
+
+    /* Table becomes stacked layout */
+    .product-table thead {
+        display: none;
+    }
+
+    .product-table,
+    .product-table tbody,
+    .product-table tr,
+    .product-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .product-row {
+        background: #ffffff;
+        margin-bottom: 15px;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .product-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border: none;
+        margin-bottom: 8px;
+    }
+
+    .product-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        font-weight: 600;
+        text-align: left;
+        color: #6c757d;
+    }
+
+    .product-image {
+        text-align: center !important;
+        padding-left: 0 !important;
+    }
+
+    .product-image::before {
+        display: none;
+    }
+
+    .product-img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .product-actions {
+        text-align: center !important;
+        padding-left: 0 !important;
+    }
+
+    .product-actions::before {
+        display: none;
+    }
+
+    .product-actions .action-btn {
+        display: inline-block;
+        margin: 4px 3px;
+    }
+}
