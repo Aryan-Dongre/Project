@@ -1,0 +1,101 @@
+{% extends "user/base.html" %}
+
+{% block title %}Services | Beauty Parlor{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/services.css') }}">
+{% endblock %}
+
+{% block page_js %}
+<script src="{{ url_for('static', filename='js/services.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+
+<div class="services-page">
+<div class="container py-5">
+
+    <!-- ================= CATEGORY TOGGLE ================= -->
+    <div class="text-center mb-5">
+
+        <a href="{{ url_for('services', gender='WOMEN', type='NORMAL') }}"
+           class="btn {% if gender=='WOMEN' and service_type=='NORMAL' %}btn-warning text-dark{% else %}btn-outline-warning{% endif %} me-2">
+            Women
+        </a>
+
+        <a href="{{ url_for('services', gender='MEN', type='NORMAL') }}"
+           class="btn {% if gender=='MEN' and service_type=='NORMAL' %}btn-warning text-dark{% else %}btn-outline-warning{% endif %} me-2">
+            Men
+        </a>
+
+        <a href="{{ url_for('services', type='BRIDAL') }}"
+           class="btn {% if service_type=='BRIDAL' %}btn-warning text-dark{% else %}btn-outline-warning{% endif %} me-2">
+            Bridal
+        </a>
+
+        <a href="{{ url_for('services', type='GROOM') }}"
+           class="btn {% if service_type=='GROOM' %}btn-warning text-dark{% else %}btn-outline-warning{% endif %}">
+            Groom
+        </a>
+
+    </div>
+
+    <!-- ================= SERVICES ================= -->
+    {% if service_type or gender %}
+
+        {% for category in categories %}
+
+            <h3 class="category-title">{{ category.name }}</h3>
+
+            <div class="services-grid">
+
+                {% for service in services.get(category.id, []) %}
+
+                    <div class="service-card" data-id="{{ service.id}}">
+
+                        <input type="checkbox"
+                               name="service"
+                               value="{{ service.id }}"
+                               class="service-checkbox"
+                               hidden>
+
+                        <h6>{{ service.name }}</h6>
+
+                        <p class="price">₹ {{ service.charges }}</p>
+
+                        <p class="duration">
+                            Duration: {{ service.duration }}
+                        </p>
+
+                        {% if service.description %}
+                            <p class="desc">{{ service.description }}</p>
+                        {% endif %}
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% endfor %}
+
+    {% else %}
+        <!-- EMPTY STATE -->
+        <div class="text-center py-5">
+            <h4 class="text-warning">
+                Please select a category to view services
+            </h4>
+        </div>
+    {% endif %}
+
+    <div class="text-center mt-5">
+        <button id="bookAppointmentBtn" class="btn btn-warning px-5 py-2">
+    Booking Appointment
+     </button>
+
+    </div>
+
+</div>
+</div>
+
+{% endblock %}

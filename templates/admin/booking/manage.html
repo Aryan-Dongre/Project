@@ -1,0 +1,223 @@
+{% extends "admin/base.html"%}
+
+{% block page_title%}Bookings {% endblock %}
+
+{% block extra_css %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='admin/css/booking.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+  <h2 class="mb-3">Manage Bookings</h2>
+
+  <!--Summary card-->
+
+  <div class="row mb-4">
+    <div class="col-md-3">
+      <div class="card dashboard-card">
+        <div class="card-body">
+          <h6 class="text-warning">Total Bookings</h6>
+          <h4 class="card-value total">{{ total_bookings }}</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card dashboard-card">
+        <div class="card-body">
+          <h6 class="text-warning">Paid Bookings</h6>
+          <h4 class="card-value paid">{{ paid_booking }}</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card dashboard-card">
+        <div class="card-body">
+          <h6 class="text-warning">Pending Bookings</h6>
+          <h4 class="card-value pending">{{ pending_booking }}</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card dashboard-card">
+        <div class="card-body">
+          <h6 class="text-warning">Total Revenue</h6>
+          <h4 class="card-value revenue">₹{{ revenue }}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Search and filter  part-->
+  <form method="GET" class="row g-2 mb-3 align-items-end">
+
+    <!-- Search -->
+    <div class="col-md-3">
+      <label class="form-label">Search</label>
+      <input type="text" name="search" placeholder="Name, Email, Date..." value="{{ search_query }}"
+        class="form-control">
+    </div>
+
+    <!-- Status Filter -->
+    <div class="col-md-2">
+      <label class="form-label">Booking Status</label>
+      <select name="status" class="form-select">
+        <option value="">All</option>
+        <option value="PENDING" {{ 'selected' if status_filter=='PENDING' else '' }}>Pending</option>
+        <option value="PAID" {{ 'selected' if status_filter=='PAID' else '' }}>Confirmed</option>
+        <option value="CANCELLED" {{ 'selected' if status_filter=='CANCELLED' else '' }}>Cancelled</option>
+      </select>
+    </div>
+
+    <!-- Submit -->
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-dark w-100">
+        Apply
+      </button>
+    </div>
+
+    <!-- Reset -->
+    <div class="col-md-2">
+      <a href="{{ url_for('admin.manage_booking') }}" class="btn btn-secondary w-100">
+        Reset
+      </a>
+    </div>
+
+  </form>
+
+
+
+  <!--table-->
+  <table class="table table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Client</th>
+        <th>Email</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Services</th>
+        <th>Total</th>
+        <th>Payment</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for booking in bookings %}
+      <tr>
+        <td>#{{ booking.id }}</td>
+
+        <td>
+          <strong>{{ booking.client_name }}</strong>
+        </td>
+
+        <td>
+          <strong>{{ booking.client_email }}</strong>
+        </td>
+
+        <td>{{ booking.booking_date }}</td>
+        <td>{{ booking.booking_time }}</td>
+
+        <td>{{ booking.total_services }}</td>
+
+        <td>₹{{ booking.total_amount }}</td>
+
+        <!--Payment Status-->
+        <td>
+          {% if booking.payment_status =='PAID' %}
+          <span class="badge bg-success">PAID</span>
+          {% else %}
+          <span class="badge bg-warning text-dark">PENDING</span>
+          {% endif %}
+        </td>
+
+        <!--Booking Status-->
+        <td>
+          {% if booking.status == "CANCELLED" %}
+          <span class="badge bg-danger">CANCELLED</span>
+          {% elif booking.status == "PAID" %}
+          <span class="badge bg-primary">CONFIRMED</span>
+          {% else %}
+          <span class="badge bg-secondary">PENDING</span>
+          {% endif %}
+        </td>
+
+        <!--Action-->
+        <td>
+
+          <a href="{{ url_for('admin.view_booking', id=booking.id) }}" class="btn btn-sm btn-info">
+            View
+          </a>
+          {% if booking.status != "CANCELLED" %}
+          <a href="{{ url_for('admin.cancel_booking', id=booking.id) }}" class="btn btn-sm btn-danger"
+            onclick="return confirm('Are you sure you want to cancel this booking?');">
+            Cancelled
+          </a>
+          {% else %}
+          -
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+
+      {% if not bookings %}
+      <tr>
+        <td colspan="9" class="text-center text-muted">
+          No Booking Found
+        </td>
+      </tr>
+      {% endif %}
+    </tbody>
+
+  </table>
+
+  <!--Pagination-->
+  {% if total_pages > 1 %}
+  <nav>
+    <ul class="pagination justify-content-center mt-4">
+
+      <!--Previous-->
+      <li class="page-item {{ 'disabled' if page == 1 else '' }}">
+        <a class="page-link" href="{{ url_for('admin.manage_booking', 
+                          page=page-1, 
+                          search=search_query, 
+                          status=status_filter) }}">
+
+          Previous</a>
+      </li>
+      <!-- Page Numbers -->
+      {% for p in range(1, total_pages+1) %}
+      <li class="page-item {{ 'active' if p == page else '' }}">
+        <a class="page-link" href="{{ url_for('admin.manage_booking',
+                            page=p,
+                            search=seach_query,
+                            status=status_filter) }}">
+
+          {{ p }}
+        </a>
+      </li>
+      {% endfor %}
+
+      <!-- Next -->
+      <li class="page-item {{ 'disabled' if page == total_pages else '' }}">
+        <a class="page-link" href="{{ url_for('admin.manage_booking', 
+                          page=page+1, 
+                          search=search_query, 
+                          status=status_filter) }}">
+          Next
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+  {% endif %}
+</div>
+
+{% endblock %}

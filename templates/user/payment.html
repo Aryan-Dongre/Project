@@ -1,0 +1,55 @@
+{% extends "user/base_payment.html" %}
+{% block title %}Payment | Beauty Parlor{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/payment.css') }}">
+{% endblock %}
+
+{% block page_js %}
+<script src="{{ url_for('static', filename='js/payment.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="payment-page">
+    <div class="payment-card">
+
+        <h2 class="payment-title">Secure Payment</h2>
+        <p class="payment-subtitle">Please review your details</p>
+
+        <form method="POST" action="{{ url_for('process_payment', booking_id=booking.booking_id) }}">
+            <div class="payment-details">
+                <div class="row">
+                    <span>Name</span>
+                    <strong>{{ booking.full_name }}</strong>
+                </div>
+
+                <div class="row editable-row">
+                    <span>Email</span>
+
+                    <div class="editable-field">
+                        <input type="email" name="payment_email" id="emailInput" value="{{ booking.email }}" readonly required>
+
+                        <i class="fa-solid fa-pen edit-icon" onclick="enableEmailEdit()"></i>
+                    </div>
+                </div>
+
+                <div class="row total">
+                    <span>Total Amount</span>
+                    <strong>₹{{ booking.total_amount }}</strong>
+                </div>
+            </div>
+
+            <input type="hidden" name="payment_method" value="DEMO">
+
+            <button type="submit" class="pay-btn">
+                Pay ₹{{ booking.total_amount }}
+            </button>
+
+        </form>
+
+        <p class="payment-note">
+            🔒 This is a demo payment. No real money will be deducted.
+        </p>
+    </div>
+</div>
+{% endblock %}

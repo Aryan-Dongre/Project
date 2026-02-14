@@ -1,0 +1,102 @@
+{% extends "user/base.html" %}
+{% block title %}My Appointments{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/my_appointments.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-warning fw-bold mb-4">
+        My Appointments History
+    </h2>
+
+    {% for b in bookings %}
+    <div class="appointment-card mx-auto mb-4">
+
+        <div class="appointment-flex">
+
+            <!-- LEFT -->
+            <div class="left-info">
+                <h5 class="section-title">
+                    <i class="fa-solid fa-user"></i> Client & Service Details
+                </h5>
+
+                <p><strong>Name:</strong> {{ b.client_name }}</p>
+                <p><strong>Email:</strong> {{ b.client_email }}</p>
+                <p><strong>Phone:</strong> {{ b.phone }}</p>
+
+                <p class="mt-3">
+                    <strong>Service Type:</strong> {{ b.service_type }}
+                </p>
+                <p>
+                    <strong>Services:</strong> {{ b.services | join(", ") }}
+                </p>
+
+                <p class="mt-3">
+                    <strong>Date:</strong> {{ b.booking_date }}
+                </p>
+                <p>
+                    <strong>Slot:</strong> {{ b.booking_time }}
+                </p>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="right-info">
+                <h5 class="section-title">
+                    <i class="fa-solid fa-credit-card"></i> Payment & Status
+                </h5>
+
+                <p><strong>Amount:</strong> ₹{{ b.total_amount }}</p>
+                <p><strong>Payment Method:</strong> {{ b.payment_method or "Demo Payment" }}</p>
+                <p><strong>Transaction ID:</strong> {{ b.transaction_id or "—" }}</p>
+
+                {% set pay_status = b.payment_status or 'PENDING' %}
+                {% set app_status = b.appointment_status or 'CONFIRMED' %}
+
+                <div class="status-group mt-3">
+
+                    <!-- PAYMENT STATUS -->
+                    <span class="badge payment-badge
+                        {% if pay_status == 'SUCCESS' %}
+                            status-success
+                        {% elif pay_status == 'PENDING' %}
+                            status-pending
+                        {% else %}
+                            status-failed
+                        {% endif %}
+                    ">
+                        Payment: {{ pay_status }}
+                    </span>
+
+                    <!-- APPOINTMENT STATUS -->
+                    <span class="badge appointment-badge
+                        {% if app_status == 'CONFIRMED' %}
+                            status-confirmed
+                        {% elif app_status == 'COMPLETED' %}
+                            status-completed
+                        {% else %}
+                            status-cancelled
+                        {% endif %}
+                    ">
+                        Appointment: {{ app_status }}
+                    </span>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ACTION -->
+        <div class="text-center mt-4">
+            <a href="{{ url_for('services') }}" class="btn btn-outline-warning px-4">
+                Book Again
+            </a>
+        </div>
+
+    </div>
+    {% else %}
+    <p class="text-muted text-center">No upcoming appointments.</p>
+    {% endfor %}
+</div>
+{% endblock %}

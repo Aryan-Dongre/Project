@@ -1,0 +1,200 @@
+{% extends "user/base.html" %}
+
+{% block title %}Home | Beauty Parlor{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block page_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        /* ========= SERVICE CARD ANIMATION ========= */
+        const serviceCards = document.querySelectorAll(".service-card");
+
+        const serviceObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("animate");
+                    } else {
+                        entry.target.classList.remove("animate");
+                    }
+                });
+            },
+            { threshold: 0.3 }
+        );
+
+        serviceCards.forEach(card => serviceObserver.observe(card));
+
+
+        /* ========= PRODUCT CARD ANIMATION ========= */
+        const productCards = document.querySelectorAll(".product-card");
+
+        const productObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    } else {
+                        entry.target.classList.remove("show");
+                    }
+                });
+            },
+            { threshold: 0.25 }
+        );
+
+        productCards.forEach(card => productObserver.observe(card));
+
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+
+<!-- ================= HERO SECTION ================= -->
+<section class="home-hero">
+    <div class="hero-overlay">
+        <div class="container text-center">
+            <h1 class="hero-title">
+                <span class="slide-left">Welcome to</span>
+                <span class="slide-right">Beauty Parlor</span>
+            </h1>
+            <p class="hero-subtitle">
+                Premium Beauty & Wellness Services Crafted for Elegance
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ================= SERVICES PREVIEW ================= -->
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+        <h2 class="text-warning fw-bold">Our Services</h2>
+        <p class="text-muted">Experience Beauty, Care, and Relaxation</p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-3 col-sm-6">
+            <div class="card service-card bg-dark text-light h-100">
+                <img src="{{ url_for('static', filename='images/hair.jpg') }}" alt="Hair Styling">
+                <div class="card-body service-card-body">
+                    <h5>Hair Styling</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="card service-card bg-dark text-light h-100">
+                <img src="{{ url_for('static', filename='images/makeup.jpeg') }}" alt="Makeup">
+                <div class="card-body service-card-body">
+                    <h5>Makeup</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="card service-card bg-dark text-light h-100">
+                <img src="{{ url_for('static', filename='images/facial.jpg') }}" alt="Facial Care">
+                <div class="card-body service-card-body">
+                    <h5>Facial Care</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="card service-card bg-dark text-light h-100">
+                <img src="{{ url_for('static', filename='images/girl_spa.webp') }}" alt="Spa Therapy">
+                <div class="card-body service-card-body">
+                    <h5>Spa Therapy & Relaxation</h5>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- MORE SERVICES BUTTON -->
+    <div class="text-center mt-5">
+        <a href="{{ url_for('services') }}" class="more-services-btn">
+            More Services
+        </a>
+    </div>
+
+</section>
+
+<!-- ================= PRODUCTS PREVIEW ================= -->
+<section class="home-products py-5">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <h2 class="section-title">Our Products</h2>
+            <p class="section-subtitle">
+                Discover Our Exclusive and Professional Beauty Products
+            </p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="product-card">
+                    <div class="product-card-inner">
+                        <img src="{{ url_for('static', filename='images/concealer.jpg') }}" alt="Concealer">
+                        <div class="product-overlay">
+                            <h5>Concealer</h5>
+                            <a href="{{ url_for('products') }}" class="explore-btn">Explore</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="product-card">
+                    <div class="product-card-inner">
+                        <img src="{{ url_for('static', filename='images/Hydrating Mask.webp') }}" alt="Hydrating Mask">
+                        <div class="product-overlay">
+                            <h5>Hydrating Mask</h5>
+                            <a href="{{ url_for('products') }}" class="explore-btn">Explore</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="product-card">
+                    <div class="product-card-inner">
+                        <img src="{{ url_for('static', filename='images/lipstick.jpg') }}" alt="Lipstick">
+                        <div class="product-overlay">
+                            <h5>Lipstick</h5>
+                            <a href="{{ url_for('products') }}" class="explore-btn">Explore</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="product-card">
+                    <div class="product-card-inner">
+                        <img src="{{ url_for('static', filename='images/shampoo.webp') }}" alt="Shampoo">
+                        <div class="product-overlay">
+                            <h5>Shampoo</h5>
+                            <a href="{{ url_for('products') }}" class="explore-btn">Explore</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ================= PRODUCTS PREVIEW OVER ================= -->
+
+<!-- ================= APPOINTMENT CTA BUTTON================= -->
+<div class="text-center mt-5">
+    <a href="{{ url_for('appointment') }}" class="appointment-cta-btn">
+        Book an appointment
+    </a>
+</div>
+
+{% endblock %}

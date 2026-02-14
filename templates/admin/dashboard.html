@@ -1,0 +1,97 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Dashboard | Admin{% endblock %}
+
+{% block page_title %}Dashboard{% endblock %}
+
+{% block content %}
+
+
+<div class="dashboard-grid">
+
+  <div class="card">
+    <div class="card-title"> 📅 Total Bookings</div>
+    <div class="card-value">{{ total_bookings }}</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">⏳ Pending Appointments</div>
+    <div class="card-value">{{ pending_bookings }}</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🧴 Services</div>
+    <div class="card-value">{{ total_services }}</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📦 Products</div>
+    <div class="card-value">{{ total_products }}</div>
+  </div>
+
+</div>
+
+<!--Payment Part -->
+<div class="revenue-wrapper">
+     <div class="revenue-card">
+        <div class="revenue-left">
+          <div class="revenue-title">💰 Today’s Revenue</div>
+          <div class="revenue-subtitle">Paid bookings today</div>
+        </div>
+        <div class="revenue-amount">
+           ₹ {{ today_revenue }}
+        </div>
+     </div>
+</div>
+
+<!--Recent Booking-->
+<div class="table-card">
+  <h3 class="table-title">Recent Bookings</h3>
+
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Booking ID</th>
+        <th>Client ID
+        <th>Client Name</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Status</th>
+        <th>Payment</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if recent_booking %}
+      {% for booking in recent_booking %}
+      <tr>
+        <td>#{{ booking.id }}</td>
+        <td>{{ booking.client_id }}</td>
+        <td>{{ booking.client_name }}</td>
+        <td>{{ booking.booking_date }}</td>
+        <td>{{ booking.booking_time }}</td>
+        <td>
+          <span class="status {{ booking.status|lower }}">
+            {{ booking.status }}
+          </span>
+        </td>
+        <td>
+          <span class="status {{ booking.payment_status|lower }}">
+            {{ booking.payment_status }}
+          </span>
+        </td>
+      </tr>
+      {% endfor %}
+      {% else %}
+      <tr class="empty-row">
+        <td colspan="6">No recent bookings found</td>
+      </tr>
+      {% endif %}
+    </tbody>
+
+    </tbody>
+  </table>
+</div>
+
+
+
+{% endblock %}

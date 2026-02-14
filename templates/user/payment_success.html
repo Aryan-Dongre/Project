@@ -1,0 +1,62 @@
+{% extends "user/base_payment.html" %}
+{% block title %}Payment Successful {% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/payment.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="payment-page">
+    <div class="payment-card success-card">
+
+        <div class="success-icon">
+             <i class="fa-solid fa-circle-check"></i>
+        </div>
+
+        <h2 class="payment-title success-title">
+            Payment Successful
+        </h2>
+
+        <p class="payment-subtitle">
+            Thank you! Your appointment has been confirmed.
+        </p>
+
+        <div class="payment-details">
+            <div class="row">
+                <span>Booking ID</span>
+                <strong>#{{ payment.booking_id }}</strong>
+            </div>
+
+            <div class="row">
+                <span>Email</span>
+                <strong>{{ payment.payment_email }}</strong>
+            </div>
+
+            
+            <div class="row">
+                <span>Transaction ID</span>
+                <strong>{{ payment.transaction_id }}</strong>
+            </div>
+        </div>  
+
+         <div class="success-actions">
+            <a href="{{ url_for('home') }}" class="pay-btn">
+                Go to Home
+            </a>
+        </div>
+
+        <p class="payment-note">
+            📧 A confirmation email can be sent in real systems.
+        </p> 
+
+    </div>
+</div>
+
+<script>
+history.pushState(null, null, location.href);
+window.onpopstate = function () {
+    history.go(1);
+};
+</script>
+
+{% endblock %}
