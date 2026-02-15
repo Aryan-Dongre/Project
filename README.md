@@ -6,6 +6,7 @@ This Web-application is help to Book an Appointment, online payment, view book a
 This project is created to reduce the man work and make booking easy.
 <br>
 The Tech we use to build this project are - 
+<br>
   1.Frontend - HTML, CSS, JS
   <br>
   2.Backend -Python
@@ -13,6 +14,12 @@ The Tech we use to build this project are -
   3.Framework - FLASK(Python)
   <br>
   4.Database - MySQL  
+<br>
+<h3>Mandatory Requirements to run this whole Project by using Visual Studio Code</h3>
+<br>
+1. Python Should be install in your PC/Laptop
+<br>
+2.For This Flask should be install to run the program and handle the flask libraries 
 <br>
 <h3>Details Of Project</h3>
 This Project is divied into two type 
