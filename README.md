@@ -19,7 +19,6 @@ The Tech we use to build this project are -
 1. Python Should be install in your PC/Laptop
 <br>
 2.For This Flask should be install to run the program and handle the flask libraries 
-<br>
 <h3>Details Of Project</h3>
 This Project is divied into two type 
 <br>
@@ -27,7 +26,7 @@ This Project is divied into two type
  <br>
  2.Admin
 <h4>User</h4>
-In the <ul>User Side</ul> They can redister themself by login page and if they  already have so they can login directly
+In the <u>User Side</u> They can redister themself by login page and if they  already have so they can login directly
 <br>
 Then in the Home page there is a nav bar where multiple option are present like - Service, Product, Appointment, AboutUs, and Contact
 <br>
