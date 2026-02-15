@@ -22,6 +22,7 @@ The Tech we use to build this project are -
 <br>
 <h3>Details Of Project</h3>
 This Project is divied into two type 
+<br>
  1.User
  <br>
  2.Admin
