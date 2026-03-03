@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </head>
+
+    <body>
+        <div class="login-container">
+            <h2>Login</h2>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+         {% if messages %}
+             {% for category, message in messages %}
+              <div class="flash {{ category }}">{{ message }}</div>
+             {% endfor%}
+         {% endif %}
+       {% endwith %}
+
+            <form method="POST" action="{{ url_for('login') }}">
+                <input type="email" 
+                name="email" 
+                placeholder="Email" 
+                required>
+                
+                <div class="password-wrap">
+                    <input type="password"
+                    id="password"
+                    name="password"
+                    placeholder="password"
+                    required>
+                    <i class="fa fa-eye toggle-password" onclick="togglePassword()" id="toggleIcon"></i>
+                </div> 
+
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+
+            <p class="register-text">
+                Don’t have an account?
+                <a href="{{ url_for('register') }}">Register</a>
+            </p>
+
+            <p class="register-text">
+                <a href="{{ url_for ('forgot_password')}}">Forgot Password</a>
+            </p>
+            
+        </div>
+
+        <script>
+        function togglePassword() {
+            const passwordField = document.getElementById("password");
+            const icon = document.getElementById("toggleIcon");
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                passwordField.type = "password";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
+        }
+        </script>
+
+    </body>
+
+</html>

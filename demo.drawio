@@ -1,0 +1,85 @@
+<mxfile host="65bd71144e">
+    <diagram id="Zh9NQvbwZ7RRsV1XAzm5" name="Page-1">
+        <mxGraphModel dx="906" dy="490" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="3" value="Store&lt;div&gt;1.id&lt;/div&gt;&lt;div&gt;2.name&lt;/div&gt;&lt;div&gt;3.contact&lt;/div&gt;&lt;div&gt;4.address&lt;/div&gt;&lt;div&gt;5.opening/closing time&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="40" width="140" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Staff&lt;div&gt;1.staff id&lt;/div&gt;&lt;div&gt;2.name&lt;/div&gt;&lt;div&gt;3.contact&lt;/div&gt;&lt;div&gt;4.address&lt;/div&gt;&lt;div&gt;5.store id&lt;/div&gt;&lt;div&gt;6.hire date&lt;/div&gt;&lt;div&gt;7.working position&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="40" width="140" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Product&amp;nbsp;&lt;div&gt;1.product id&lt;/div&gt;&lt;div&gt;2.product brand&lt;/div&gt;&lt;div&gt;3.base price&lt;/div&gt;&lt;div&gt;4.name&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="440" y="40" width="140" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Client&amp;nbsp;&lt;div&gt;1.Client id&lt;/div&gt;&lt;div&gt;2.name&lt;/div&gt;&lt;div&gt;3.Contact&lt;/div&gt;&lt;div&gt;4.Address&lt;/div&gt;&lt;div&gt;5.Email&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="240" width="140" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;div&gt;Service&lt;/div&gt;&lt;div&gt;1.Service id&lt;/div&gt;&lt;div&gt;2.Service charge&lt;/div&gt;&lt;div&gt;3.Name&lt;/div&gt;&lt;div&gt;4.Duration&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="240" width="140" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Booking&lt;div&gt;1.Booking id&lt;/div&gt;&lt;div&gt;2.Client id&lt;/div&gt;&lt;div&gt;3.Total_amount&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="450" y="240" width="140" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;div&gt;Appointment&lt;/div&gt;&lt;div&gt;1.Appointment_id&lt;/div&gt;&lt;div&gt;2.Client_id&lt;/div&gt;&lt;div&gt;3.Staff_id&lt;/div&gt;&lt;div&gt;4.Store_id&lt;/div&gt;&lt;div&gt;5.booking status&lt;/div&gt;&lt;div&gt;6.Service id&lt;/div&gt;&lt;div&gt;7.Schedual date&lt;/div&gt;&lt;div&gt;8.Start time&amp;nbsp;&lt;/div&gt;&lt;div&gt;9.End time&amp;nbsp;&lt;/div&gt;&lt;div&gt;10.booking Id&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="430" width="170" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;div&gt;Payment&lt;/div&gt;&lt;div&gt;1.payment_id&lt;/div&gt;&lt;div&gt;2.client_id&lt;/div&gt;&lt;div&gt;3.booking_id&lt;/div&gt;&lt;div&gt;4.amount&lt;/div&gt;&lt;div&gt;5.methods&lt;/div&gt;&lt;div&gt;6.status&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="440" width="140" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Review&lt;div&gt;1.review_id&lt;/div&gt;&lt;div&gt;2.client_id&lt;/div&gt;&lt;div&gt;3.store_id&lt;/div&gt;&lt;div&gt;4.rating&lt;/div&gt;&lt;div&gt;5.comment&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="470" y="440" width="140" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="SELLER&amp;nbsp;&lt;div&gt;1.seller_id&lt;/div&gt;&lt;div&gt;2.name&amp;nbsp;&lt;/div&gt;&lt;div&gt;3product_id&lt;/div&gt;&lt;div&gt;4.brand_name&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="40" width="140" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="&lt;div&gt;Registration&amp;nbsp;&lt;/div&gt;&lt;div&gt;1.registration_id&lt;/div&gt;&lt;div&gt;2.email_id&lt;/div&gt;&lt;div&gt;3.STAFF_ID&lt;/div&gt;&lt;div&gt;4.CLIENT_ID&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="660" y="240" width="140" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="&lt;div&gt;ADDRESS&lt;/div&gt;&lt;div&gt;1.ADDRESS_ID&lt;/div&gt;&lt;div&gt;2.STREET_NAME&lt;/div&gt;&lt;div&gt;3.CITY&lt;/div&gt;&lt;div&gt;4.STATE&lt;/div&gt;&lt;div&gt;5.PINCODE&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="680" y="440" width="140" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.tick" vertex="1" parent="1">
+                    <mxGeometry x="440" y="40" width="50" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.tick" vertex="1" parent="1">
+                    <mxGeometry x="230" y="50" width="50" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.tick" vertex="1" parent="1">
+                    <mxGeometry x="640" y="40" width="50" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.tick" vertex="1" parent="1">
+                    <mxGeometry x="30" y="250" width="50" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.tick" vertex="1" parent="1">
+                    <mxGeometry x="680" y="440" width="50" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="&lt;div&gt;contact&lt;/div&gt;&lt;div&gt;1.id&lt;/div&gt;&lt;div&gt;2.phone_num_1&lt;/div&gt;&lt;div&gt;3.phone_num_2&lt;/div&gt;&lt;div&gt;4.email_id&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="640" width="140" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.tick" vertex="1" parent="1">
+                    <mxGeometry x="300" y="770" width="50" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.tick" vertex="1" parent="1">
+                    <mxGeometry x="30" y="650" width="50" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.tick" vertex="1" parent="1">
+                    <mxGeometry x="450" y="250" width="50" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.tick" vertex="1" parent="1">
+                    <mxGeometry x="230" y="250" width="50" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.tick" vertex="1" parent="1">
+                    <mxGeometry x="240" y="440" width="50" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.tick" vertex="1" parent="1">
+                    <mxGeometry x="20" y="470" width="50" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.tick" vertex="1" parent="1">
+                    <mxGeometry x="660" y="250" width="50" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

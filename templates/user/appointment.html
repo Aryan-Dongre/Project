@@ -1,0 +1,143 @@
+{% extends "user/base.html" %}
+{% block title %}Appointment | Beauty Parlor{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/appointment.css') }}">
+{% endblock %}
+
+{% block page_js %}
+<script src="{{ url_for('static', filename='js/appointment.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+
+  <!-- Back Button -->
+  <a href="{{ url_for('services') }}" class="text-warning mb-4 d-inline-block">
+    ← Back
+  </a>
+
+  <!-- FORM START -->
+  <form id="appointmentForm" method="POST" action="{{ url_for('booking_summary') }}">
+    <div class="row g-4">
+
+      <!-- LEFT: BOOKING FORM -->
+      <div class="col-md-5">
+        <div class="card bg-dark text-light p-4 rounded-4">
+          <h4 class="mb-4">Book Appointment</h4>
+
+          <!-- Name -->
+          <input type="text"
+                 class="form-control mb-3"
+                 name="full_name"
+                 value="{{ booking.name if booking else user.full_name }}"
+                 required>
+
+          <!-- Email -->
+          <input type="email"
+                 class="form-control mb-3"
+                 name="email"
+                 value="{{ booking.email if booking else user.email }}"
+                 required>
+
+          <!-- Phone -->
+          <input type="tel"
+                 class="form-control mb-3"
+                 name="phone"
+                 value="{{ booking.phone if booking else '' }}"
+                 placeholder="Phone Number"
+                 required>
+
+          <!-- Date -->
+           <div class="date-wrapper">
+              <input type="date"
+                 name="date"
+                 id="booking_date"
+                 class="form-control mb-3"
+                 min="{{ today }}"
+                 required>
+            </div>     
+
+          <!-- TIME SLOT -->
+          <label class="text-warning fw-bold mb-2">Select Time Slot</label>
+
+          <div class="slot-grid mb-3">
+            {% for slot in [
+              ('10:00:00','10:00 AM'), ('10:30:00','10:30 AM'),
+              ('11:00:00','11:00 AM'), ('11:30:00','11:30 AM'),
+              ('12:00:00','12:00 PM'), ('12:30:00','12:30 PM'),
+              ('14:00:00','02:00 PM'), ('14:30:00','02:30 PM'),
+              ('15:00:00','03:00 PM'), ('15:30:00','03:30 PM'),
+              ('16:00:00','04:00 PM'), ('16:30:00','04:30 PM'),
+              ('17:15:00','05:15 PM'), ('17:45:00','05:45 PM'),
+              ('18:30:00','06:30 PM'), ('19:00:00','07:00 PM')
+            ] %}
+              <button type="button"
+                      class="slot-btn"
+                      data-time="{{ slot[0] }}">
+                {{ slot[1] }}
+              </button>
+            {% endfor %}
+          </div>
+
+          <!-- Hidden time -->
+          <input type="hidden" name="time" id="selectedTime">
+
+          <!-- Total -->
+          <h6 class="text-warning">
+            Total: ₹ <span id="totalAmount">{{ total_amount }}</span>
+          </h6>
+
+          <!-- Submit -->
+          <button type="submit"
+                  id="confirmBtn"
+                  class="btn btn-warning w-100 mt-3"
+                  disabled>
+            Confirm Booking
+          </button>
+        </div>
+      </div>
+
+      <!-- RIGHT: SERVICES -->
+      <div class="col-md-7">
+        <div class="card bg-dark text-light p-4 rounded-4">
+          <h4 class="mb-4">Selected Services</h4>
+
+          <div id="selectedServices">
+            {% for service in service_list %}
+              <div class="service-item d-flex justify-content-between align-items-center mb-3"
+                   data-id="{{ service.id }}"
+                   data-price="{{ service.charges }}">
+
+                <span>{{ service.name }}</span>
+
+                <div>
+                  <span class="text-warning me-3">₹{{ service.charges }}</span>
+                  <button type="button"
+                          class="btn btn-sm btn-outline-danger remove-service">
+                    ✕
+                  </button>
+                </div>
+              </div>
+
+              <!-- IMPORTANT: hidden input OUTSIDE service-item -->
+              <input type="hidden"
+                     name="services"
+                     value="{{ service.id }}"
+                     class="service-hidden">
+            {% endfor %}
+          </div>
+
+          <a href="{{ url_for('services') }}"
+             class="btn btn-outline-warning mt-3">
+            + Add More Services
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </form>
+  <!-- FORM END -->
+
+</div>
+{% endblock %}

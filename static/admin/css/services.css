@@ -1,0 +1,175 @@
+/* =====================
+   PAGE
+===================== */
+.service-page {
+  padding: 20px;
+}
+
+/* =====================
+   HEADER
+===================== */
+.services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap
+}
+
+.header-text h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.header-text p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #777;
+}
+
+/* =====================
+   BUTTONS
+===================== */
+.btn-primary {
+  background: #4f46e5;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.btn-primary:hover {
+  background: #4338ca;
+}
+
+.btn-secondary {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* =====================
+   FILTER BAR
+===================== */
+.services-filters {
+  display: flex;
+  gap: 12px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px #eee;
+  margin-bottom: 20px;
+}
+
+.services-filters input,
+.services-filters select {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* =====================
+   TABLE
+===================== */
+.table-wrapper {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px #eee;
+}
+
+.services-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.services-table thead {
+  background: #f5f6fa;
+}
+
+.services-table th,
+.services-table td {
+  padding: 12px 14px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.services-table tbody tr {
+  border-bottom: 1px solid #eee;
+}
+
+.services-table tbody tr:hover {
+  background: #fafafa;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* =====================
+   ACTION BUTTONS
+===================== */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.btn-edit {
+  padding: 6px 10px;
+  font-size: 13px;
+  color: #2563eb;
+  border: 1px solid #2563eb;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.btn-delete {
+  padding: 6px 10px;
+  font-size: 13px;
+  color: #dc2626;
+  border: 1px solid #dc2626;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.btn-edit:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+.btn-delete:hover {
+  background: #dc2626;
+  color: #fff;
+}
+
+/* =====================
+   EMPTY STATE
+===================== */
+.no-data {
+  text-align: center;
+  padding: 30px;
+  color: #888;
+}
+
+
+@media (max-width: 768px) {
+
+  .services-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .services-header .btn-primary {
+    width: 50%;
+    text-align: center;
+    margin-top: 12px;
+    
+  }
+
+}

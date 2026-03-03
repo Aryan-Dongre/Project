@@ -1,0 +1,160 @@
+{% extends "admin/base.html" %}
+
+{% block page_title %}Add Service{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='admin/css/add_services.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="service-page">
+
+  <!-- ================= HEADER ================= -->
+  <div class="services-header">
+    <div class="header-text">
+      <h2>{{"Update Service" if is_edit else "Add Service"}}</h2>
+      <p>{{"Update Service details" if is_edit else "Create a new service"}}</p>  
+    </div>
+
+    <a href="{{ url_for('admin.manage_services') }}" class="btn-back">
+      ← Back
+    </a>
+  </div>
+
+  <!-- ================= FORM ================= -->
+  <div class="form-wrapper">
+    <form method="POST">
+
+      <div class="form-grid">
+
+        <!-- Service Name -->
+        <div class="form-group">
+          <label>Service Name</label>
+          <input
+            type="text"
+            name="name"
+            value="{{ service.name if service else '' }}"
+            placeholder="Enter service name"
+            required
+          >
+        </div>
+
+        <!-- Charges -->
+        <div class="form-group">
+          <label>Charges (₹)</label>
+          <input
+            type="number"
+            name="charges"
+            value="{{ service.charges if service else '' }}"
+            placeholder="Enter charges"
+            required
+          >
+        </div>
+
+        <!-- Duration -->
+        <div class="form-group">
+          <label>Duration (minutes)</label>
+          <input
+            type="number"
+            name="duration"
+            value="{{ service.duration if service else '' }}"
+            placeholder="Enter duration"
+            required
+          >
+        </div>
+
+        <!-- Category -->
+        <div class="form-group">
+          <label>Category</label>
+          
+          <select name="category_id" required>
+              {% for c in categories %}
+                <option value="{{ c.id }}"
+                  {% if service and service.category_id == c.id %}selected{% endif %}>
+                  {{ c.name }}
+                </option>
+              {% endfor %}
+            </select>
+
+        </div>
+
+        <!-- Service Type -->
+        <div class="form-group">
+          <label>Service Type</label>
+          <select name="service_type_id" id="serviceTypeSelect" required>
+           <option value="" disabled
+              {% if not service %}selected{% endif %}>
+              Select service type
+            </option>
+            {% for st in service_types %}
+              <option value="{{ st.id }}"
+                {% if service and service.service_type_id == st.id %}selected{% endif %}>
+                {{ st.name }}
+              </option>
+            {% endfor %}
+          </select>
+
+
+        </div>
+
+        <!-- Gender -->
+        <div class="form-group" id="gender-field">
+          <label>Gender</label>
+          <select name="gender_id" id="genderSelect">
+
+             <option value="" disabled
+              {% if not service or not service.gender_id %}selected{% endif %}>
+              Select gender
+            </option>
+            <option value="1" {% if service and service.gender_id == 1 %}selected{% endif %}>MEN</option>
+            <option value="2" {% if service and service.gender_id == 2 %}selected{% endif %}>WOMEN</option>
+          </select>
+        </div>
+
+
+      </div>
+
+      <!--  actions-->
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">
+         {{"Update Service" if is_edit else "Save Service"}}
+        </button>
+
+        <a href="{{ url_for('admin.manage_services') }}" class="btn-secondary">
+          Cancel
+        </a>
+      </div>
+
+    </form>
+  </div>
+
+</div>
+
+<script>
+  const serviceTypeSelect = document.getElementById("serviceTypeSelect");
+  const genderField = document.getElementById("gender-field");
+  const genderSelect = document.getElementById("genderSelect");
+
+  function toggleGender() {
+    const selectedText =
+      serviceTypeSelect.options[serviceTypeSelect.selectedIndex].text.toLowerCase();
+
+    if (selectedText === "normal") {
+      genderField.style.display = "block";
+      genderSelect.required = true;
+    } else {
+      genderField.style.display = "none";
+      genderSelect.required = false;
+      genderSelect.value = "";
+    }
+  }
+
+  serviceTypeSelect.addEventListener("change", toggleGender);
+
+  // run on page load (IMPORTANT for edit page)
+  toggleGender();
+</script>
+
+
+{% endblock %}

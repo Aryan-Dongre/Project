@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment Confirmation</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; background-color:#f4f4f4; padding:20px;">
+
+    <table width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+            <td align="center">
+                <table width="600px" style="background:#ffffff; padding:20px; border-radius:8px;">
+
+                    <tr>
+                        <td align="center" style="padding-bottom:20px;">
+                            <h2 style="color:#e91e63;">🌸 Beauty Parlor</h2>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <p>Hi {{ user_name }},</p>
+
+                            <p>
+                                Your appointment has been <strong style="color:green;">confirmed successfully!</strong>
+                            </p>
+
+                            <table width="100%" style="background:#fafafa; padding:15px; border-radius:6px;">
+                                <tr>
+                                    <td><strong>Booking ID:</strong></td>
+                                    <td>{{ booking_id }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Service:</strong></td>
+                                    <td>{{ service_name }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Date:</strong></td>
+                                    <td>{{ appointment_date }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Time:</strong></td>
+                                    <td>{{ appointment_time }}</td>
+                                </tr>
+
+                            </table>
+
+                            <p style="margin-top:20px;">
+                                Please arrive 10 minutes early for a smooth experience.
+                            </p>
+
+                            <p>
+                                If you need to reschedule, please contact us.
+                            </p>
+
+                            <p>Thank you for choosing us 💖</p>
+
+                            <p>
+                                Regards,<br>
+                                <strong>Beauty Parlor Team</strong>
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+.booking-page{
+    min-height: 100vh;
+    background-color: #000;
+}
+
+.booking-card{
+    background-color: #111;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.table th,
+.table td {
+    vertical-align: middle;
+}
+
+.total-box{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    margin-top: 15px;
+    background-color: #000;
+    border-radius: 10px;
+    color: #f5c542;
+    font-size: 1.2rem;
+}

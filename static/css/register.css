@@ -1,0 +1,85 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* Full screen background */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #000000, #1c1c1c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card */
+.register-container {
+    width: 380px;
+    background-color: #111;
+    padding: 40px 35px;
+    border-radius: 18px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+    text-align: center;
+}
+
+/* Title */
+.register-container h2 {
+    color: #f5c542;
+    margin-bottom: 28px;
+    font-size: 1.9rem;
+}
+
+/* Input group */
+.input-group {
+    display: flex;
+    align-items: center;
+    background-color: #000;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 0 12px;
+    margin-bottom: 18px;
+}
+
+.input-group i {
+    color: #f5c542;
+    margin-right: 10px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 13px 10px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.input-group input::placeholder {
+    color: #999;
+}
+
+.input-group:focus-within {
+    border-color: #f5c542;
+    box-shadow: 0 0 0 2px rgba(245,197,66,0.3);
+}
+
+/* Button */
+.register-container button {
+    width: 100%;
+    padding: 13px;
+    background-color: #f5c542;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.register-container button:hover {
+    background-color: #e0b832;
+    transform: translateY(-1px);
+}

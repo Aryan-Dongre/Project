@@ -1,0 +1,56 @@
+{% extends "user/base.html" %}
+{% block title %}Booking Summary{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+
+  <h3 class="text-warning mb-4">Booking Summary</h3>
+
+  <!-- Client Details -->
+  <div class="card mb-3 p-3">
+    <h5>Client Details</h5>
+    <p><strong>Name:</strong> {{ full_name }}</p>
+    <p><strong>Email:</strong> {{ email }}</p>
+    <p><strong>Phone:</strong> {{ phone }}</p>
+  </div>
+
+  <!-- Appointment Details -->
+  <div class="card mb-3 p-3">
+    <h5>Appointment Details</h5>
+    <p><strong>Date:</strong> {{ booking_date }}</p>
+    <p><strong>Time:</strong> {{ booking_time }}</p>
+  </div>
+
+  <!-- Selected Services -->
+  <div class="card mb-3 p-3">
+    <h5>Selected Services</h5>
+
+    {% for service in services %}
+      <div class="d-flex justify-content-between">
+        <span>{{ service.name }}</span>
+        <span class="text-warning">₹{{ service.charges }}</span>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Total Amount -->
+  <div class="card mb-3 p-3">
+    <h5>Total Amount</h5>
+    <p class="fs-5 text-warning">₹{{ total_amount }}</p>
+  </div>
+
+  <!-- Actions -->
+  <div class="mt-4">
+    <a href="{{ url_for('payment_page', booking_id=booking_id) }}"
+       class="btn btn-warning">
+      Proceed to Payment
+    </a>
+
+    <a href="{{ url_for('appointment') }}"
+       class="btn btn-outline-secondary ms-2">
+      Edit Booking
+    </a>
+  </div>
+
+</div>
+{% endblock %}
