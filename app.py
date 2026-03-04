@@ -827,6 +827,7 @@ def process_payment(booking_id):
 
     try :
         send_confirmation_email(booking_id)
+        send_payment_success_email(booking_id)
         print("CALLING EMAIL...")
     except Exception as e:
         print("Email failed but payment succeeded:", e)
@@ -877,6 +878,61 @@ def send_confirmation_email(booking_id):
         booking_id=booking_id,
         service_name=appointment_data["services"],
         seat_id=f"Seat-{appointment_data['seat_id']}"
+    )
+
+def send_payment_success_email(booking_id):
+
+    cur = mysql.connection.cursor(DictCursor)
+
+    print("PAYMENT EMAIL FUNCTION CALLED")
+
+    payment_data = None   # Prevent unbound variable error
+
+    try:
+        cur.execute("""
+            SELECT
+                b.client_name,
+                p.payment_email,
+                p.amount,
+                p.payment_method,
+                p.transaction_id,
+                p.payment_time,
+                b.booking_date,
+                b.booking_time,
+                GROUP_CONCAT(DISTINCT s.name SEPARATOR ', ') AS services
+            FROM payment p
+            JOIN booking b ON p.booking_id = b.id
+            JOIN booking_service bs ON b.id = bs.booking_id
+            JOIN service s ON bs.service_id = s.id
+            WHERE p.booking_id = %s
+            GROUP BY p.id
+        """, (booking_id,))
+
+        payment_data = cur.fetchone()
+
+    except Exception as e:
+        print("Payment email query error:", e)
+
+    finally:
+        cur.close()
+
+    if not payment_data:
+        print("No payment data found for email.")
+        return
+
+    EmailService.send_email(
+        subject="Payment Successful - Beauty Parlor",
+        recipients=[payment_data["payment_email"]],
+        template_name="payment_success.html",
+        user_name=payment_data["client_name"],
+        booking_id=booking_id,
+        amount=payment_data["amount"],
+        payment_method=payment_data["payment_method"],
+        transaction_id=payment_data["transaction_id"],
+        payment_time=payment_data["payment_time"],
+        booking_date=payment_data["booking_date"],
+        booking_time=payment_data["booking_time"],
+        services=payment_data["services"]
     )
 
 ################################################################################################
