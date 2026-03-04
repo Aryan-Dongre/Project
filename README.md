@@ -36,7 +36,7 @@ This system allows clients to book services, make payments, and receive confirma
   <h2>Installation</h2>
   1. Clone the repository
 
-git clone https://github.com/YOUR_USERNAME/Beauty-Parlor-Management-System.git
+git clone https://github.com/Aryan-Dongre/Beauty-Parlor-Management-Systems-.git
 
 2. Navigate to project folder
 
@@ -68,3 +68,30 @@ MAIL_PASSWORD=your_email_password
 python app.py
 
 <hr>
+
+<h2>System Development Phases</h2>
+
+<h4>Level 1 – Core Booking & Payment System</h4>
+The First phase focuses on building the core functionality required for managing appointments.
+<br>
+Features implement in this phase:
+<br>
+ 1.Authentication with proper login system
+ <br>
+ 2. User booking system
+ <br>
+ 3.Service selection
+ <br>
+ 4.Multiple service booking
+ <br>
+ 5.Booking database management
+ <br>
+ 6.Payment transaction storage
+ <br>
+ 7.Appointment creation after successful payment
+ <br>
+ 8.View appointments functionality
+ <br>
+ 9.Admin management of services and bookings, payment.
+
+ 
