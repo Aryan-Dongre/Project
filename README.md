@@ -88,10 +88,42 @@ Features implement in this phase:
  <br>
  6.Payment transaction storage
  <br>
- 7.Appointment creation after successful payment
+ 7.Seat allocation for appointments
  <br>
- 8.View appointments functionality
+ 8.Appointment creation after successful payment
  <br>
- 9.Admin management of services and bookings, payment.
+ 9.View appointments functionality
+ <br>
+ 10.Admin management of services and bookings, payment.
+
+ At this stage, system successfully handles the complete workflow:
+
+ Client Booking → Payment → Appointment Creation.
+
+ <h4>Level 2 – Email Notification System</h4>
+
+ The second phase introduces automation through an email notification sustem.
+ <br>
+ Email notification are implemented  using Flask-Mail with Gmail SMTP.
+
+ Features implementd in this phase:
+<br>
+ 1.Appointment confirmation email
+ <br>
+ 2.Payment success email
+ <br>
+ 3.Password reset email
+ <br>
+ 4.HTML email templates
+ <br>
+ 5.Secure email integration
+
+ Email notifications are triggered automatically after specific events such as:
+
+Successful payment
+
+Appointment confirmation
+
+Password reset request
 
  
